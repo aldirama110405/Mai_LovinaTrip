@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mai Lovina Trip</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Playfair Display', serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    .header-background {
+  background-color: rgba(0, 0, 0, 0.6); /* Warna hitam transparan */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 80px;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Efek blur agar lebih elegan */
+}
+
+    .logo {
+  font-size: 24px; /* Ukuran lebih kecil */
+  font-family: 'Great Vibes', cursive; /* Font kreatif */
+  font-weight: 400;
+  color: #ffffff;
+}
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+    }
+
+    .hero {
+      background: url('background.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-size: 4rem;
+      color: #007bff;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .trip-section {
+      padding: 60px 5%;
+      background-color: #fff;
+    }
+
+    .trip-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 40px;
+    }
+
+    .trip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .trip-card {
+      background-color: #f0f8ff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .trip-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    .trip-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .trip-card h3 {
+      margin: 20px;
+      color: #eedaaf;
+      font-size: 1.8rem;
+    }
+
+    .trip-card p {
+      margin: 0 20px 20px;
+      color: #666;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+ <header class="header-background">
+  <h1 class="logo">Mai Lovina Trip</h1>
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode untuk icon burger -->
+  </div>
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#tours">Tours</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <section class="hero" id="home">
+    <h2>Explore the Beauty of Lovina</h2>
+    <p>Discover amazing places and enjoy unforgettable experiences.</p>
+  </section>
+  <section class="trip-section" id="tours">
+    <h2>Best Offers </h2>
+    <div id="tripGrid" class="trip-grid"></div>
+  </section>
+  
+    <div id="popupOverlay" class="popup-overlay">
+        <div id="popupContent" class="popup-content">
+          <!-- Konten popup akan diisi oleh script.js -->
+        </div>
+      </div>
+      <body>
+        <section id="about" class="about-section">
+            <div class="about-content">
+              <h2>About Us</h2>
+              <p>Welcome to Mai Lovina Trip! Experience the beauty of Lovina with our exclusive Dolphin Trip and explore the best destinations guided by our experienced team. Our mission is to create unforgettable memories for our guests with the highest level of professionalism and service.</p>
+              <p>Join us for an extraordinary adventure and discover the charm of Lovina like never before.</p>
+            </div>
+          </section>
+          
+      <script src="script.js" defer></script>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>About Section</title>
+      </head>
+      <body>
+          
+      <section class="why-lovina">
+        <h2>Why Mai Lovina Trip</h2>
+        <div class="benefits-container">
+          <div class="benefit-card">
+            <img src="icon1.png" alt="Personalized Matching" />
+            <h3>PERSONALIZED MATCHING</h3>
+            <p>Discover the best trip tailored just for you with our personalized recommendations.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon2.png" alt="Wide Variety of Destinations" />
+            <h3>WIDE VARIETY OF DESTINATIONS</h3>
+            <p>Experience the beauty of Lovina with our selection of amazing destinations.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon3.png" alt="Highly Qualified Service" />
+            <h3>HIGHLY QUALIFIED SERVICE</h3>
+            <p>Enjoy exceptional service from our experienced local guides.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon4.png" alt="24/7 Support" />
+            <h3>24/7 SUPPORT</h3>
+            <p>We are available around the clock to assist you during your trip.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon5.png" alt="Handpicked Hotels" />
+            <h3>HANDPICKED HOTELS</h3>
+            <p>Stay in the most comfortable and well-reviewed hotels in Lovina.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon6.png" alt="Best Price Guarantee" />
+            <h3>BEST PRICE GUARANTEE</h3>
+            <p>We ensure you get the best value for your money with our price guarantee.</p>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="contact-section">
+        <div class="contact-overlay">
+          <div class="contact-container">
+            <div class="contact-info">
+              <h2>Contact Us</h2>
+              <p><img src="phone.png" alt="Phone" class="icon"/> +62 852 3886 2877</p>
+              <div class="social-media">
+  <a href="https://www.facebook.com/namakamu" target="_blank" aria-label="Facebook">
+    <img src="facebook.png" alt="Facebook"/>
+  </a>
+  <a href="https://twitter.com/namakamu" target="_blank" aria-label="Twitter">
+    <img src="twitter.png" alt="Twitter"/>
+  </a>
+  <a href="https://www.instagram.com/aldirama._" target="_blank" aria-label="Instagram">
+    <img src="instagram.png" alt="Instagram"/>
+  </a>
+  <a href="https://www.tiktok.com/@namakamu" target="_blank" aria-label="Tiktok">
+    <img src="Tiktok.png" alt="Tiktok"/>
+  </a>
+</div>
+
+            </div>
+            <a
+  href="https://wa.me/6285238862877"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <img src="phone.png" alt="WhatsApp" />
+</a>
+
+      
+            <div class="lovina-article">
+              <h3>Discover the Beauty of Lovina</h3>
+              <p>Located in the northern part of Bali, Lovina is famous for its serene beaches, breathtaking sunrise dolphin tours, and vibrant coral reefs. Whether you're seeking relaxation or adventure, Lovina offers an unforgettable experience. Explore the local culture, savor delicious Balinese cuisine, and capture memories that last a lifetime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+<section id="gallery" style="padding: 60px 5%; background-color: #fff;">
+  <h2 style="text-align: center; font-size: 2.5rem; color: #007bff; margin-bottom: 40px;">Gallery</h2>
+  <div class="gallery-grid">
+    <!-- Card 1 -->
+    <div class="gallery-item">
+      <img src="sunset.jpg" alt="Lovina Beach" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Lovina Beach at Sunrise</p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="gallery-item">
+      <img src="snorkeling.jpeg" alt="Dolphin Watching" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Dolphin Watching Tour</p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="gallery-item">
+      <img src="temple.jpeg" alt="Sunrise View" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Temple Trip</p>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="gallery-item">
+      <img src="waterfall.jpeg" alt="Traditional Boat" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Traditional Boat Tour</p>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="gallery-item">
+      <img src="background.jpg" alt="Lovina Local Culture" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Lovina Local Culture</p>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="gallery-item">
+      <img src="about.jpg" alt="Scenic Beachside" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Scenic Beachside</p>
+      </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="gallery-item">
+      <img src="contact.jpg" alt="Island Adventures" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Island Adventures</p>
+      </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="gallery-item">
+      <img src="hot_spring.jpg" alt="Nature Trails" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Nature Trails</p>
+      </div>
+    </div>
+    <!-- Card 9 -->
+    <div class="gallery-item">
+      <img src="sunset.jpg" alt="Cultural Performances" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Cultural Performances</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="location" style="padding: 60px 20px; text-align: center; background: #f8f9fa;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 10px; color: #007bff;">Our Location</h2>
+  <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+    Come visit our warung for further consultation while enjoying traditional Balinese food!
+  </p>
+  <div style="
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  "
+    onmouseover="this.style.transform='scale(1.01)'"
+    onmouseout="this.style.transform='scale(1)'"
+  >
+    <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.056793513615!2d115.0335186758473!3d-8.151477081365504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd19b1a6ae79509%3A0xf618c1f4cccd1a00!2sWarung%20Made!5e0!3m2!1sen!2sid!4v1718010447364!5m2!1sen!2sid"
+  width="100%"
+  height="450"
+  style="border:0; display: block;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+  </div>
+</section>
+
+
+
+<section class="testimonial-section">
+  <h2>What Our Guests Say</h2>
+
+  <!-- Form untuk input review -->
+  <form id="review-form" class="review-form">
+    <textarea id="review-text" placeholder="Tulis review Anda di sini..." required></textarea>
+    <input type="text" id="review-author" placeholder="Nama Anda" required>
+    <button type="submit">Kirim Review</button>
+  </form>
+
+  <!-- Container untuk list testimonial -->
+<div id="testimonial-container" class="testimonial-container">
+  <div class="testimonial-card">
+    <p>"The dolphin tour was magical! We saw so many dolphins during sunrise. Everything was well-organized."</p>
+    <h4>— Emma, Australia</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"We had an amazing waterfall trekking adventure. The guide was patient and the scenery was breathtaking!"</p>
+    <h4>— Carlos & Maria, Spain</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"The bonfire night with grilled fish under the stars was the most memorable part of our Bali trip."</p>
+    <h4>— Olivia, USA</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"Mai Lovina Trip gave us a beautiful temple tour experience. We learned a lot about Balinese culture."</p>
+    <h4>— Kenji, Japan</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"Highly recommended! The hot spring visit after dolphin watching was so relaxing. Great service!"</p>
+    <h4>— Sophie, France</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"My kids loved every second of the tour, especially the dolphins and the campfire. Thank you Mai Lovina Trip!"</p>
+    <h4>— Michael, Canada</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"The team is very professional and friendly. Every activity was safe, fun, and well-timed."</p>
+    <h4>— Lara, Germany</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"We joined the temple tour and waterfall trek. The views were stunning, and the guides spoke great English."</p>
+    <h4>— Ahmed & Noor, UAE</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"I didn’t expect the bonfire night to be so magical! The grilled fish was delicious, and the vibes were perfect."</p>
+    <h4>— Natalia, Russia</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"From dolphin tours to hot springs, every part of the package was excellent. A must-do in Lovina!"</p>
+    <h4>— Thomas, UK</h4>
+  </div>
+</div>
+
+</section>
+<script>
+  const form = document.getElementById('review-form');
+  const testimonialContainer = document.getElementById('testimonial-container');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Supaya tidak reload halaman
+
+    // Ambil nilai input
+    const reviewText = document.getElementById('review-text').value;
+    const reviewAuthor = document.getElementById('review-author').value;
+
+    // Buat elemen testimonial baru
+    const newTestimonial = document.createElement('div');
+    newTestimonial.classList.add('testimonial-card', 'new');
+    newTestimonial.innerHTML = `
+      <p>"${reviewText}"</p>
+      <h4>— ${reviewAuthor}</h4>
+    `;
+
+    // Tambahkan testimonial baru ke container
+    testimonialContainer.prepend(newTestimonial);
+
+    // Setelah sedikit delay, tambahkan class 'show' untuk animasi
+    setTimeout(() => {
+      newTestimonial.classList.add('show');
+    }, 50);
+
+    // Reset form
+    form.reset();
+  });
+</script>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
+
+  toggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+</script>
+
